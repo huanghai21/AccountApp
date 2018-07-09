@@ -1,0 +1,44 @@
+<div class="container">
+  <div [hidden]="submitted">
+    <h1>order-form</h1>
+    <form (ngSubmit)="onSubmit($event, orderForm)" #orderForm="ngForm">
+      <div class="row">
+    <div class="col-xs-12 col-12 col-md-4 form-group">
+    <label>房源</label>
+    <select name="house" [(ngModel)]="order.house" class="form-control">
+      <option *ngFor="let item of names" [value]="item">{{item}}</option>
+    </select>
+  </div>
+  <div class="col-xs-12 col-12 col-md-4 form-group">
+    <label>来源</label>
+    <select name="platform" [(ngModel)]="order.platform" class="form-control">
+      <option *ngFor="let item of platforms" [value]="item">{{item}}</option>
+    </select>
+  </div>
+  </div>
+  <div class="row">
+        <div class="col-xs-12 col-12 col-md-4 form-group">
+          <label>订单日期</label>
+          <input name="date" [(ngModel)]="order.date" type="text" class="form-control" placement="bottom" bsDatepicker>
+        </div>
+        <div class="col-xs-12 col-12 col-md-4 form-group">
+          <label>起止日期</label>
+          <input name="dateRange" [(ngModel)]="order.dateRange" type="text" class="form-control" placement="bottom" bsDaterangepicker>
+        </div>
+      </div>
+      <div class="row">
+    <div class="col-xs-12 col-12 col-md-4 form-group">
+    <label>收益</label>
+    <input type="number" class="form-control" name="income" [(ngModel)]="order.income" />
+  </div>
+  <div class="col-xs-12 col-12 col-md-4 form-group">
+    <label>负责人</label>
+    <select name="person" [(ngModel)]="order.person" class="form-control">
+      <option *ngFor="let item of persons" [value]="item">{{item}}</option>
+    </select>
+  </div>
+  </div>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+  </div>
+</div>
