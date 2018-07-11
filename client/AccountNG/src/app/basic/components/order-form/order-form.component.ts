@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { OrderBean } from './order-bean';
+import { BasicHttpService } from '../../service/basic-http.service';
+
 @Component({
-  selector: 'order-form',
-  templateUrl: './order-form.component.html',
-  styleUrls: ['./order-form.component.css']
+	selector: 'order-form',
+	templateUrl: './order-form.component.html',
+	styleUrls: ['./order-form.component.css']
 })
 
 export class OrderFormComponent implements OnInit {
@@ -24,7 +26,7 @@ export class OrderFormComponent implements OnInit {
 		'李'
 	];
 	public order: OrderBean;
-	constructor() { }
+	constructor(private http: BasicHttpService) { }
 
 	ngOnInit() {
 		this.order = new OrderBean();
@@ -34,6 +36,13 @@ export class OrderFormComponent implements OnInit {
 		event.preventDefault();
 		console.log('form is: ', orderForm);
 		console.log('order is: ', this.order);
+		const url = '/api/v1/order';
+		const body = JSON.stringify(this.order);
+		this.http.post(url, body).then(res => {
+			console.log('res is: ', res);
+		}).catch(error => {
+			console.error('error is: ', error);
+		})
 	}
 
 }

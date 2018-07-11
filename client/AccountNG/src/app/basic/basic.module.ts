@@ -6,6 +6,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap';
 
 import { ExpenditureFormComponent } from './components/expenditure-form/expenditure-form.component';
 import { OrderFormComponent } from './components/order-form/order-form.component';
+import { BasicHttpService } from './service/basic-http.service';
 
 const EXPORTS = [
 	OrderFormComponent,
@@ -19,7 +20,7 @@ const EXPORTS = [
 	],
 	declarations: [ExpenditureFormComponent, OrderFormComponent],
 	exports: EXPORTS,
-	providers: [],
+	providers: [BasicHttpService],
 	entryComponents: []
 })
 export class BasicModule {
