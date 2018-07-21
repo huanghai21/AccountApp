@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { BasicModule } from './basic/basic.module';
+import { AppRoutingModule } from './/app-routing.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { BasicModule } from './basic/basic.module';
 		HttpClientModule,
 		// BrowserAnimationsModule,
 		// BsDatepickerModule.forRoot(),
-		BasicModule
+		BasicModule,
+		AppRoutingModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]
